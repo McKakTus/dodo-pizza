@@ -26,9 +26,14 @@
     transition: all $duration ease-in-out;
   }
 
+  .button__div {
+    display: flex;
+    align-items: center;
+  }
+
   span {
     &.price {
-      padding-top: 4px;
+      padding-top: 2px;
     }
   }
 
@@ -152,6 +157,22 @@
     span {
       font-weight: 600;
       font-size: 16px;
+      padding-top: 2px;
+    }
+  }
+  &--auth {
+    background-color: #ececec;
+    color: #5c6370;
+    font-weight: 500;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 10px;
+    min-width: 75px;
+    font-size: 14px;
+    margin-left: auto;
+    &:hover {
+      background-color: #ececec;
+      color: #000;
     }
   }
 }

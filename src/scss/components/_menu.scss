@@ -1,0 +1,24 @@
+@import 'variables';
+
+nav {
+    .grid {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        .menu {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+            .option {
+                margin-left: 20px;
+                &:first-child {
+                    margin-left: 0px;
+                }
+                a {
+                    display: block;
+                    padding: 22px 0px;
+                }
+            }
+        }
+    }
+}
