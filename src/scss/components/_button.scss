@@ -170,6 +170,9 @@
     min-width: 75px;
     font-size: 14px;
     margin-left: auto;
+    @media (max-width: 648px) {
+      display: none;
+    }
     &:hover {
       background-color: #ececec;
       color: #000;

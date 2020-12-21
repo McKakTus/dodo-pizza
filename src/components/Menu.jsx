@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CartPopup } from '../components';
 
 const Menu = () => {
+    const [click, setClick] = useState(false);
+
     return (
         <nav>
             <div className="container">
                 <div className="grid">
-                    <ul className="menu">
+                    <ul className="nav-options">
                         <li className="option">
                             <a href="#">Пицца</a>
                         </li>

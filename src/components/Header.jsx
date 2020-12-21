@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from '../components';
 import Button from './Button';
+import { ReactComponent as CloseMenu } from "../assets/img/menu.svg";
+import { ReactComponent as MenuIcon } from "../assets/img/menu.svg";
 
 function Header() {
+    const [click, setClick] = useState(false);
+    const handleClick = () => setClick(!click);
 
     return (
-        <div className="header">
+        <div className={click ? "header active" : "header"}>
             <div className="container">
                 <div className="header-menu">
                     <Link to="/">
@@ -38,6 +42,14 @@ function Header() {
                     </Link>
 
                     <Button className="button--auth">Войти</Button>
+
+                    <div className="mobile-menu" onClick={handleClick}>
+                        {click ? (
+                            <CloseMenu className="menu-icon" />
+                        ) : (
+                            <MenuIcon className="menu-icon" />
+                        )}
+                    </div>
                 </div>
             </div>
 
