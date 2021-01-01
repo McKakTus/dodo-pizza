@@ -58,4 +58,4 @@ const CartItem = ({ id, name, type, size, totalPrice, totalCount, imageUrl, onRe
     );
 }
 
-export default CartItem
+export default CartItem;

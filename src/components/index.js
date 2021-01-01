@@ -6,4 +6,5 @@ export { default as SortPopup} from './SortPopup';
 export { default as CartPopup} from './CartPopup';
 export { default as PizzaBlock } from './PizzaBlock';
 export { default as CartItem } from './CartItem';
+export { default as CartPopupList } from './CartPopupList';
 export { default as PizzaLoadingBlock } from './PizzaBlock/LoadingBlock';

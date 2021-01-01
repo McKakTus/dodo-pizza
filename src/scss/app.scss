@@ -263,7 +263,7 @@ body {
       width: 33%;
 
       b {
-        font-weight: 700;
+        font-weight: 500;
         font-size: 22px;
         letter-spacing: 0.01em;
       }
@@ -337,6 +337,10 @@ body {
       span {
         font-size: 22px;
 
+        b {
+          font-weight: 500;
+        }
+
         &:last-of-type {
           b {
             color: $orange;
@@ -355,7 +359,7 @@ body {
         align-items: center;
         justify-content: center;
         width: 210px;
-
+        padding-top: 2px;
         border-color: darken($color: $gray-line, $amount: 10);
 
         span {
@@ -435,7 +439,7 @@ body {
 
     .button--black {
       padding: 0;
-      line-height: 42px;
+      line-height: 43px;
       width: 230px;
       margin: 0 auto;
       font-weight: 400;
