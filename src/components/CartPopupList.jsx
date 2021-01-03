@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Button from './Button';
 
 const CartPopupList = ({ id, name, type, size, totalPrice, totalCount, imageUrl, onRemove, onMinus, onPlus }) => {
