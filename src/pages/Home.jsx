@@ -26,11 +26,49 @@ const settings = {
     speed: 500
 };
 
+const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+    <button
+        {...props}
+        className={
+        "slick-prev slick-arrow" +
+        (currentSlide === 0 ? " slick-disabled" : "")
+        }
+        aria-hidden="true"
+        aria-disabled={currentSlide === 0 ? true : false}
+        type="button"
+    >
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="17" cy="17" r="17" fill="#373535"></circle>
+            <path d="M14.759 9.8418L20.9409 16.9997L14.759 24.1576" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
+        </svg>
+    </button>
+);
+
+const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+    <button
+        {...props}
+        className={
+        "slick-next slick-arrow" +
+        (currentSlide === slideCount - 1 ? " slick-disabled" : "")
+        }
+        aria-hidden="true"
+        aria-disabled={currentSlide === slideCount - 1 ? true : false}
+        type="button"
+    >
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="17" cy="17" r="17" fill="#373535"></circle>
+            <path d="M14.759 9.8418L20.9409 16.9997L14.759 24.1576" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
+        </svg>
+    </button>
+);
+
 const popular = {
-    infinite: true,
     slidesToShow: 4,
     slidesToScroll: 1,
-    speed: 500
+    speed: 500,
+    infinite: false,
+    prevArrow: <SlickArrowLeft />,
+    nextArrow: <SlickArrowRight />,
 };
 
 function Home() {
@@ -78,53 +116,65 @@ function Home() {
             </section>
 
             <section className="new_popular__pizzas">
-                <div className="container">
-                    <h2 className="content__title">Новое и популярное</h2>
-                    <Slider {...popular}>
-                        <div className="offer">
-                            <img src="https://dodopizza-a.akamaihd.net/static/Img/Products/4516c60c26ea4684ae2ed9a520b51906_146x146.jpeg" alt=""/>
-                            <div className="item">
-                                <h2>Пепперони</h2>
-                                <span>от 459 ₽</span>
-                            </div>
+                <h2 className="content__title">Новое и популярное</h2>
+                {/* <div className="buttons-arrows">
+                    <div className="prev-click">
+                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="17" cy="17" r="17" fill="#373535"></circle>
+                            <path d="M14.759 9.8418L20.9409 16.9997L14.759 24.1576" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                    <div className="next-click">
+                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="17" cy="17" r="17" fill="#373535"></circle>
+                            <path d="M14.759 9.8418L20.9409 16.9997L14.759 24.1576" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                </div> */}
+                <Slider {...popular}>
+                    <div className="offer">
+                        <img src="https://dodopizza-a.akamaihd.net/static/Img/Products/4516c60c26ea4684ae2ed9a520b51906_146x146.jpeg" alt=""/>
+                        <div className="item">
+                            <h2>Пепперони</h2>
+                            <span>от 459 ₽</span>
                         </div>
-                        <div className="offer">
-                            <img src="https://dodopizza-a.akamaihd.net/static/Img/Products/4516c60c26ea4684ae2ed9a520b51906_146x146.jpeg" alt=""/>
-                            <div className="item">
-                                <h2>Пепперони</h2>
-                                <span>от 459 ₽</span>
-                            </div>
+                    </div>
+                    <div className="offer">
+                        <img src="https://dodopizza-a.akamaihd.net/static/Img/Products/4516c60c26ea4684ae2ed9a520b51906_146x146.jpeg" alt=""/>
+                        <div className="item">
+                            <h2>Пепперони</h2>
+                            <span>от 459 ₽</span>
                         </div>
-                        <div className="offer">
-                            <img src="https://dodopizza-a.akamaihd.net/static/Img/Products/4516c60c26ea4684ae2ed9a520b51906_146x146.jpeg" alt=""/>
-                            <div className="item">
-                                <h2>Пепперони</h2>
-                                <span>от 459 ₽</span>
-                            </div>
+                    </div>
+                    <div className="offer">
+                        <img src="https://dodopizza-a.akamaihd.net/static/Img/Products/4516c60c26ea4684ae2ed9a520b51906_146x146.jpeg" alt=""/>
+                        <div className="item">
+                            <h2>Пепперони</h2>
+                            <span>от 459 ₽</span>
                         </div>
-                        <div className="offer">
-                            <img src="https://dodopizza-a.akamaihd.net/static/Img/Products/4516c60c26ea4684ae2ed9a520b51906_146x146.jpeg" alt=""/>
-                            <div className="item">
-                                <h2>Пепперони</h2>
-                                <span>от 459 ₽</span>
-                            </div>
+                    </div>
+                    <div className="offer">
+                        <img src="https://dodopizza-a.akamaihd.net/static/Img/Products/4516c60c26ea4684ae2ed9a520b51906_146x146.jpeg" alt=""/>
+                        <div className="item">
+                            <h2>Пепперони</h2>
+                            <span>от 459 ₽</span>
                         </div>
-                        <div className="offer">
-                            <img src="https://dodopizza-a.akamaihd.net/static/Img/Products/4516c60c26ea4684ae2ed9a520b51906_146x146.jpeg" alt=""/>
-                            <div className="item">
-                                <h2>Пепперони</h2>
-                                <span>от 459 ₽</span>
-                            </div>
+                    </div>
+                    <div className="offer">
+                        <img src="https://dodopizza-a.akamaihd.net/static/Img/Products/4516c60c26ea4684ae2ed9a520b51906_146x146.jpeg" alt=""/>
+                        <div className="item">
+                            <h2>Пепперони</h2>
+                            <span>от 459 ₽</span>
                         </div>
-                        <div className="offer">
-                            <img src="https://dodopizza-a.akamaihd.net/static/Img/Products/4516c60c26ea4684ae2ed9a520b51906_146x146.jpeg" alt=""/>
-                            <div className="item">
-                                <h2>Пепперони</h2>
-                                <span>от 459 ₽</span>
-                            </div>
+                    </div>
+                    <div className="offer">
+                        <img src="https://dodopizza-a.akamaihd.net/static/Img/Products/4516c60c26ea4684ae2ed9a520b51906_146x146.jpeg" alt=""/>
+                        <div className="item">
+                            <h2>Пепперони</h2>
+                            <span>от 459 ₽</span>
                         </div>
-                    </Slider>
-                </div>
+                    </div>
+                </Slider>
             </section>
 
             <div className="container">

@@ -17,6 +17,7 @@
         overflow: hidden;
         position: relative;
         .slick-list {
+            overflow: visible;
             .slick-track {
                 .slick-slide {
                     border-radius: 20px;
@@ -37,50 +38,145 @@
 }
 
 .new_popular__pizzas {
+    width: 100%;
+    padding: 0px calc((100% - 1280px) / 2);
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+    transform: translate3d(0px, 0px, 0px);
+    backface-visibility: hidden;
+    padding-bottom: 30px;
     h2 {
-        margin-top: 0;
+        margin: 0 0 26px;
     }
     .slick-slider {
-        padding: 0 0 30px;
-        .slick-track {
+        width: 166%;
+        margin-left: -33%;
+        padding: 0 33%;
+        overflow: hidden;
+        position: relative;
+        .slick-prev, .slick-next {
+            z-index: 1;
+            height: 132px;
             display: flex;
-            .slick-slide {
-                background: rgb(255, 255, 255);
-                transition: box-shadow 150ms ease-out 0s;
-                box-shadow: rgba(6, 5, 50, 0.15) 0px 4px 22px -6px;
-                border-radius: 12px;
+            -webkit-box-align: center;
+            align-items: center;
+            position: absolute;
+            top: 9px;
+            bottom: 0;
+            width: 20.5%;
+            z-index: 2;
+            padding: 9px 53.3333px;
+            pointer-events: all;
+            border: none;
+            transform: none;
+            transition: opacity 300ms ease-out 0s;
+            svg {
+                opacity: 0;
+                transition: opacity 150ms ease-out 0s;
+                display: block;
+            }
+        }
+        .slick-next {
+            right: 0;
+            background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%);
+        }
+        .slick-prev {
+            left: 0;
+            -webkit-box-pack: end;
+            justify-content: flex-end;
+            background-image: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%);
+        }
+        .slick-prev::before, .slick-next::before {
+            position: absolute;
+            top: 9px;
+            bottom: 20px;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 150ms ease-out 0s;
+            pointer-events: none;
+        }
+        .slick-prev:hover::before, .slick-next:hover::before {
+            opacity: 1;
+        }
+        .slick-next::before {
+            right: 0;
+            background-image: linear-gradient(270deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+        .slick-prev::before {
+            left: 0;
+            background-image: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+        .slick-list {
+            overflow: visible;
+            margin: 9px 0 22px;
+            .slick-track {
                 display: flex;
-                flex: 0 0 auto;
-                cursor: pointer;
-                width: 302px;
-                padding: 16px;
-                margin: 9px 24px 22px 0;
-                &:hover {
-                    box-shadow: rgba(6, 5, 50, 0.15) 0px 0px 12px -4px;
-                }
-                .offer {
-                    display: flex !important;
-                    align-items: center;
-                    img {
-                        height: 100px;
-                        width: 100px;
-                        margin-left: 5%;
+                .slick-slide {
+                    background: rgb(255, 255, 255);
+                    transition: box-shadow 150ms ease-out 0s;
+                    box-shadow: rgba(6, 5, 50, 0.15) 0px 4px 22px -6px;
+                    border-radius: 12px;
+                    display: flex;
+                    flex: 0 0 auto;
+                    cursor: pointer;
+                    width: 302px !important;
+                    margin-right: 24px;
+                    &:hover {
+                        box-shadow: rgba(6, 5, 50, 0.15) 0px 0px 12px -4px;
                     }
-                    .item {
-                        margin-left: 8px;
-                        h2 {
-                            font-size: 16px;
-                            line-height: 20px;
-                            max-height: 40px;
-                            overflow: hidden;
+                    .offer {
+                        display: flex !important;
+                        align-items: center;
+                        padding: 16px;
+                        img {
+                            height: 100px;
+                            width: 100px;
+                            margin-left: 5%;
                         }
-                        span {
-                            display: block;
-                            margin-top: 4px;
+                        .item {
+                            margin-left: 8px;
+                            h2 {
+                                font-size: 16px;
+                                line-height: 20px;
+                                max-height: 40px;
+                                overflow: hidden;
+                                margin: 0;
+                            }
+                            span {
+                                display: block;
+                                margin-top: 4px;
+                            }
                         }
                     }
                 }
             }
+        }
+    }
+    .slick-slider {
+        &:hover {
+            .slick-prev, .slick-next {
+                svg {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .buttons-arrows {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        top: 122px;
+        z-index: 3;
+        .prev-click, .next-click {
+            height: 34px;
+            position: fixed;
+        }
+        .prev-click {
+            left: 40px;
+        } 
+        .next-click {
+            right: 40px;
         }
     }
 }
