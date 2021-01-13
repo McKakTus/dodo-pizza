@@ -8,4 +8,5 @@ export { default as PizzaBlock } from './PizzaBlock';
 export { default as CartItem } from './CartItem';
 export { default as CartPopupList } from './CartPopupList';
 export { default as Sliders } from './Sliders';
+export { default as SliderSlick } from './SliderSlick';
 export { default as PizzaLoadingBlock } from './PizzaBlock/LoadingBlock';

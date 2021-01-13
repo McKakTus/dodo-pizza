@@ -201,17 +201,17 @@
     "sliders": [
       {
         "id": 1,
-        "image": "https://dodopizza-a.akamaihd.net/static/Img/Banners/g_1607072859_98994831a94448ac93b8e29c24d9e318.jpeg",
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Banners/g_1607072859_98994831a94448ac93b8e29c24d9e318.jpeg",
         "order": 1
-      }
+      },
       {
         "id": 2,
-        "image": "https://dodopizza-a.akamaihd.net/static/Img/Banners/g_1607467370_c0fd8687977443a08c0921a3c811a1dd.jpeg",
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Banners/g_1607467370_c0fd8687977443a08c0921a3c811a1dd.jpeg",
         "order": 2
-      }
+      },
       {
         "id": 3,
-        "image": "https://dodopizza-a.akamaihd.net/static/Img/Banners/g_1606697990_f324a520c04241d38f614cd860ea88a9.jpeg",
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Banners/g_1606697990_f324a520c04241d38f614cd860ea88a9.jpeg",
         "order": 3
       }
     ]
