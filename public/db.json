@@ -38,6 +38,7 @@
             "id": 2,
             "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/6652fec1-04df-49d8-8744-232f1032c44b.jpg",
             "name": "Цыпленок барбекю",
+            "description": "Цыпленок, соус барбекю, томатный соус, красный лук, моцарелла, бекон",
             "types": [
                 0
             ],

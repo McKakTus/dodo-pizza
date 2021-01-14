@@ -55,10 +55,14 @@
                         }
                     }
                     a {
+                        cursor: pointer;
                         display: block;
                         padding: 22px 0px; 
                         @media (max-width: 648px) { 
                             font-size: 18px;
+                        }
+                        &.active {
+                            color: #fe5f1e;
                         }
                     }
                 }

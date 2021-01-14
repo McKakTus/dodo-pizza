@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Categories, SortPopup, PizzaBlock, PizzaLoadingBlock, Sliders, SliderSlick } from '../components';
+import { Categories, SortPopup, PizzaBlock, PizzaLoadingBlock, Sliders, SliderSlick, ComboBlock, SnackBlock, DessertsBlock, DrinksBlock } from '../components';
 import { setCategory, setSortBy } from '../redux/actions/filters';
 import { fetchPizzas } from '../redux/actions/pizzas';
 import { fetchSliders } from '../redux/actions/sliders';
@@ -124,7 +124,7 @@ function Home() {
                 </Slider>
             </section>
 
-            <div className="container">
+            <div id="pizza" className="container">
                 <div className="content__top">
                     <Categories activeCategory={category} onClickCategory={onSelectCategory} items={categoryNames} />
                     <SortPopup activeSortType={sortBy.type} items={sortItems} onClickSortType={onSelectSortType} />
@@ -143,6 +143,34 @@ function Home() {
                         : Array(12).fill(0).map((_, index) => <PizzaLoadingBlock key={index} />)
                     }
                 </div>
+            </div>
+
+            <div id="combo" className="container">
+                <h2 className="content__title">Комбо</h2>
+                {/* <div className="content__items"> */}
+                    <ComboBlock />
+                {/* </div> */}
+            </div>
+
+            <div id="snacks" className="container">
+                <h2 className="content__title">Закуски</h2>
+                {/* <div className="content__items"> */}
+                    <SnackBlock />
+                {/* </div> */}
+            </div>
+
+            <div id="desserts" className="container">
+                <h2 className="content__title">Десерты</h2>
+                {/* <div className="content__items"> */}
+                    <DessertsBlock />
+                {/* </div> */}
+            </div>
+
+            <div id="drinks" className="container">
+                <h2 className="content__title">Напитки</h2>
+                {/* <div className="content__items"> */}
+                    <DrinksBlock />
+                {/* </div> */}
             </div>
         </div>
     )

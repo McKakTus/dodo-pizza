@@ -224,6 +224,7 @@ body {
 
       b {
         font-size: 22px;
+        font-weight: 500;
       }
 
       @media (max-width: 768px) {
@@ -359,7 +360,6 @@ body {
         align-items: center;
         justify-content: center;
         width: 210px;
-        padding-top: 2px;
         border-color: darken($color: $gray-line, $amount: 10);
 
         span {

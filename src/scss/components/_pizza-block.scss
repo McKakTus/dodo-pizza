@@ -1,6 +1,9 @@
 @import 'variables';
 
 .pizza-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   text-align: center;
   margin-bottom: 25px;
@@ -22,10 +25,18 @@
   }
 
   &__title {
+    text-align: left;
     font-size: 20px;
     font-weight: 400;
     letter-spacing: 1%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    text-align: left;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 10px;
   }
 
   &__selector {
@@ -34,6 +45,10 @@
     border-radius: 10px;
     flex-direction: column;
     padding: 6px;
+
+    &.mt-auto {
+      margin-top: auto;
+    }
 
     ul {
       display: flex;
@@ -77,5 +92,19 @@
     font-size: 22px;
     line-height: 27px;
     letter-spacing: 0.015em;
+  }
+}
+.combo-block {
+  &__title {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1%;
+    margin: 10px 0;
+  }
+  &__description {
+    text-align: left;
+    font-size: 14px;
+    line-height: 20px;
   }
 }

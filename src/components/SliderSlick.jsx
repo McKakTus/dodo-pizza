@@ -109,6 +109,7 @@ SliderSlick.propTypes = {
 
 SliderSlick.defaultProps = {
   name: '---',
+  description: '---',
   price: 0,
   types: [],
   sizes: [],

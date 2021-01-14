@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { CartPopup } from '../components';
+import { Link } from 'react-scroll';
 
 const Menu = () => {
 
@@ -31,31 +32,28 @@ const Menu = () => {
                     </div>
                     <ul className="nav-options">
                         <li className="option">
-                            <a href="#">Пицца</a>
+                            <Link to="pizza" spy={true} smooth={true}>Пицца</Link>
                         </li>
                         <li className="option">
-                            <a href="#">Комбо</a>
+                            <Link to="combo" spy={true} smooth={true}>Комбо</Link>
                         </li>
                         <li className="option">
-                            <a href="#">Закуски</a>
+                            <Link to="snacks" spy={true} smooth={true}>Закуски</Link>
                         </li>
                         <li className="option">
-                            <a href="#">Десерты</a>
+                            <Link to="desserts" spy={true} smooth={true}>Десерты</Link>
                         </li>
                         <li className="option">
-                            <a href="#">Напитки</a>
+                            <Link to="drinks" spy={true} smooth={true}>Напитки</Link>
                         </li>
                         <li className="option">
-                            <a href="#">Другие товары</a>
+                            <Link to="/#">Акции</Link>
                         </li>
                         <li className="option">
-                            <a href="#">Акции</a>
+                            <Link to="/#">Контакты</Link>
                         </li>
                         <li className="option">
-                            <a href="#">Контакты</a>
-                        </li>
-                        <li className="option">
-                            <a href="#">О нас</a>
+                            <Link to="/#">О нас</Link>
                         </li>
                     </ul>
 
