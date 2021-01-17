@@ -35,7 +35,7 @@ body {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 3vw;
+    grid-gap: 2vw;
 
     @media (max-width: 1380px) {
       grid-template-columns: 1fr 1fr 1fr;
