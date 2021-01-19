@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Categories, SortPopup, PizzaBlock, PizzaLoadingBlock, Sliders, SliderSlick, ComboBlock, SnackBlock, DessertsBlock, DrinksBlock } from '../components';
+import { Categories, SortPopup, PizzaBlock, PizzaLoadingBlock, Sliders, SliderSlick, ComboBlock, SnackBlock, DessertsBlock, DrinksBlock, Header } from '../components';
 import { setCategory, setSortBy } from '../redux/actions/filters';
 import { fetchPizzas } from '../redux/actions/pizzas';
 import { fetchSliders } from '../redux/actions/sliders';
@@ -106,71 +106,75 @@ function Home() {
     };
  
     return (
-        <div className="sections">
-            <section className="slider-pizza">
-                <Slider {...settings}>
-                    {swiper.map((obj) => (
-                        <Sliders id={obj.id} key={obj.id} imageUrl={obj.imageUrl} />
-                    ))}
-                </Slider>
-            </section>
+        <div>
+            <Header />
 
-            <section className="new_popular__pizzas">
-                <h2 className="content__title">Новое и популярное</h2>
-                <Slider {...popular}>
-                    {items.map((obj) => (
-                        <SliderSlick key={obj.id} onClickAddPizza={handleAddPizzaToCart} {...obj} />
-                    ))}
-                </Slider>
-            </section>
+            <div className="sections">
+                <section className="slider-pizza">
+                    <Slider {...settings}>
+                        {swiper.map((obj) => (
+                            <Sliders id={obj.id} key={obj.id} imageUrl={obj.imageUrl} />
+                        ))}
+                    </Slider>
+                </section>
 
-            <div id="pizza" className="container">
-                <div className="content__top">
-                    <Categories activeCategory={category} onClickCategory={onSelectCategory} items={categoryNames} />
-                    <SortPopup activeSortType={sortBy.type} items={sortItems} onClickSortType={onSelectSortType} />
+                <section className="new_popular__pizzas">
+                    <h2 className="content__title">Новое и популярное</h2>
+                    <Slider {...popular}>
+                        {items.map((obj) => (
+                            <SliderSlick key={obj.id} onClickAddPizza={handleAddPizzaToCart} {...obj} />
+                        ))}
+                    </Slider>
+                </section>
+
+                <div id="pizza" className="container">
+                    <div className="content__top">
+                        <Categories activeCategory={category} onClickCategory={onSelectCategory} items={categoryNames} />
+                        <SortPopup activeSortType={sortBy.type} items={sortItems} onClickSortType={onSelectSortType} />
+                    </div>
+                    <h2 className="content__title">Пицца</h2>
+                    <div className="content__items">
+                        {isLoaded 
+                            ? items.map((obj) => (
+                            <PizzaBlock 
+                                onClickAddPizza={handleAddPizzaToCart} 
+                                key={obj.id} 
+                                addedCount={cartItems[obj.id] && cartItems[obj.id].items.length}
+                                {...obj} 
+                            />
+                        )) 
+                            : Array(12).fill(0).map((_, index) => <PizzaLoadingBlock key={index} />)
+                        }
+                    </div>
                 </div>
-                <h2 className="content__title">Пицца</h2>
-                <div className="content__items">
-                    {isLoaded 
-                        ? items.map((obj) => (
-                        <PizzaBlock 
-                            onClickAddPizza={handleAddPizzaToCart} 
-                            key={obj.id} 
-                            addedCount={cartItems[obj.id] && cartItems[obj.id].items.length}
-                            {...obj} 
-                        />
-                    )) 
-                        : Array(12).fill(0).map((_, index) => <PizzaLoadingBlock key={index} />)
-                    }
+
+                <div id="combo" className="container">
+                    <h2 className="content__title">Комбо</h2>
+                    {/* <div className="content__items"> */}
+                        <ComboBlock />
+                    {/* </div> */}
                 </div>
-            </div>
 
-            <div id="combo" className="container">
-                <h2 className="content__title">Комбо</h2>
-                {/* <div className="content__items"> */}
-                    <ComboBlock />
-                {/* </div> */}
-            </div>
+                <div id="snacks" className="container">
+                    <h2 className="content__title">Закуски</h2>
+                    {/* <div className="content__items"> */}
+                        <SnackBlock />
+                    {/* </div> */}
+                </div>
 
-            <div id="snacks" className="container">
-                <h2 className="content__title">Закуски</h2>
-                {/* <div className="content__items"> */}
-                    <SnackBlock />
-                {/* </div> */}
-            </div>
+                <div id="desserts" className="container">
+                    <h2 className="content__title">Десерты</h2>
+                    {/* <div className="content__items"> */}
+                        <DessertsBlock />
+                    {/* </div> */}
+                </div>
 
-            <div id="desserts" className="container">
-                <h2 className="content__title">Десерты</h2>
-                {/* <div className="content__items"> */}
-                    <DessertsBlock />
-                {/* </div> */}
-            </div>
-
-            <div id="drinks" className="container">
-                <h2 className="content__title">Напитки</h2>
-                {/* <div className="content__items"> */}
-                    <DrinksBlock />
-                {/* </div> */}
+                <div id="drinks" className="container">
+                    <h2 className="content__title">Напитки</h2>
+                    {/* <div className="content__items"> */}
+                        <DrinksBlock />
+                    {/* </div> */}
+                </div>
             </div>
         </div>
     )
