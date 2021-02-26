@@ -1,11 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from '../components';
 import Button from './Button';
+import { Modal } from 'react-responsive-modal';
 
 function Header() {
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
+    const [open, setOpen] = useState(false);
+    const onOpenModal = () => setOpen(true);
+    const onCloseModal = () => setOpen(false);
 
     return (
         <div className={click ? "header-section active" : "header-section"}>
@@ -40,7 +44,7 @@ function Header() {
                             </div>
                         </Link>
     
-                        <Button className="button--auth">Войти</Button>
+                        <Button onClick={onOpenModal} className="button--auth">Войти</Button>
     
                         <div className="mobile-menu" onClick={handleClick}>
                             <div className="stick"></div>
@@ -48,6 +52,22 @@ function Header() {
                     </div>
                 </div>
             </div>
+
+            <Modal open={open} onClose={onCloseModal} center>
+                <div className="login-modal">
+                    <h2>Вход на сайт</h2>
+                    <form action="">
+                        <div>
+                            <label htmlFor="">Емаил</label>
+                            <input className="input__login" type="text" name="" id=""/>
+                        </div>
+                        <div>
+                            <label htmlFor="">Пароль</label>
+                            <input className="input__login" type="text" name="" id=""/>
+                        </div>
+                    </form>
+                </div>
+            </Modal>
     
             <Menu />
         </div>
