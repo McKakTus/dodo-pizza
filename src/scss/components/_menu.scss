@@ -1,7 +1,24 @@
 @import 'variables';
 
+:root {
+    --header-outer-height: 134px;
+    --header-inner-height: 63px;
+    --header-height-difference: calc(
+      var(--header-outer-height) - var(--header-inner-height)
+    );
+}
+
 .header-section {
+    height: var(--header-outer-height);
+    position: sticky;
+    top: calc(
+        var(--header-height-difference) * -1
+    );
+    z-index: 9;
     nav {
+        height: var(--header-inner-height);
+        position: sticky;
+        top: 0;
         width: 100%;
         background: #fff;
         display: block;
@@ -70,8 +87,6 @@
         }
     }
     nav.sticky {
-        position: fixed;
-        top: 0;
         &::before {
             content: '';
             position: absolute;
