@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-import { Menu } from '../components';
-import Button from './Button';
+import { Menu, Button } from '../components';
 import { Modal } from 'react-responsive-modal';
 
 function Header() {
@@ -55,17 +54,29 @@ function Header() {
 
             <Modal open={open} onClose={onCloseModal} center>
                 <div className="login-modal">
-                    <h2>Вход на сайт</h2>
-                    <form action="">
-                        <div>
-                            <label htmlFor="">Емаил</label>
-                            <input className="input__login" type="text" name="" id=""/>
+                    <div className="login-form">
+                        <h2>Вход на сайт</h2>
+                        <form action="">
+                            <div className="login-form__login">
+                                <label className="login-form__login-label" htmlFor="">Email</label>
+                                <input className="login-form__login-input" type="text" name="" id=""/>
+                            </div>
+                            <div className="login-form__login">
+                                <label className="login-form__login-label" htmlFor="">Пароль</label>
+                                <input className="login-form__login-input" type="text" name="" id=""/>
+                            </div>
+                        </form>
+                        <a className="login-form__reset-password" href="#">Восстановить пароль?</a>
+                        <Button className="button--login">Вход</Button>
+                        <div className="login-form__separator">
+                            <span>Создать аккаунт?</span>
                         </div>
-                        <div>
-                            <label htmlFor="">Пароль</label>
-                            <input className="input__login" type="text" name="" id=""/>
-                        </div>
-                    </form>
+                        <Button className="button--password">Регистрация</Button>
+                    </div>
+                    <div className="login-social">
+                        <Button className="button--facebook">Facebook</Button>
+                        <Button className="button--google">Google</Button>
+                    </div>
                 </div>
             </Modal>
     
