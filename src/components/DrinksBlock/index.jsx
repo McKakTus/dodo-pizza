@@ -16,8 +16,8 @@ function DrinksBlock() {
                 </div>
                 <div className="pizza-block__bottom">
                     <div className="pizza-block__price">95 ₽</div>
-                    <Button className="button--add" outline>
-                        <span>Добавить</span>
+                    <Button className="button--add" secondary>
+                        <span>Выбрать</span>
                     </Button>
                 </div>
             </div>
@@ -33,8 +33,8 @@ function DrinksBlock() {
                 </div>
                 <div className="pizza-block__bottom">
                     <div className="pizza-block__price">95 ₽</div>
-                    <Button className="button--add" outline>
-                        <span>Добавить</span>
+                    <Button className="button--add" secondary>
+                        <span>Выбрать</span>
                     </Button>
                 </div>
             </div>
@@ -50,8 +50,8 @@ function DrinksBlock() {
                 </div>
                 <div className="pizza-block__bottom">
                     <div className="pizza-block__price">95 ₽</div>
-                    <Button className="button--add" outline>
-                        <span>Добавить</span>
+                    <Button className="button--add" secondary>
+                        <span>Выбрать</span>
                     </Button>
                 </div>
             </div>
@@ -67,8 +67,8 @@ function DrinksBlock() {
                 </div>
                 <div className="pizza-block__bottom">
                     <div className="pizza-block__price">95 ₽</div>
-                    <Button className="button--add" outline>
-                        <span>Добавить</span>
+                    <Button className="button--add" secondary>
+                        <span>Выбрать</span>
                     </Button>
                 </div>
             </div>
