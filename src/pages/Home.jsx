@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Categories, SortPopup, PizzaBlock, PizzaLoadingBlock, Sliders, SliderSlick, ComboBlock, SnackBlock, DessertsBlock, DrinksBlock } from '../components';
+import { Categories, SortPopup, PizzaBlock, PizzaLoadingBlock, Banner, Popular, ComboBlock, SnackBlock, DessertsBlock, DrinksBlock } from '../components';
 import { setCategory, setSortBy } from '../redux/actions/filters';
 import { fetchPizzas } from '../redux/actions/pizzas';
 import { fetchSliders } from '../redux/actions/sliders';
@@ -16,15 +16,41 @@ const sortItems = [
     { name: 'алфавит', type: 'name', order: 'asc' },
 ];
 
-const settings = {
-    dots: true,
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 1,
-    speed: 500
-};
+const BannerArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+    <button
+        {...props}
+        className={
+        "slick-prev slick-arrow" +
+        (currentSlide === 0 ? " slick-disabled" : "")
+        }
+        aria-hidden="true"
+        aria-disabled={currentSlide === 0 ? true : false}
+        type="button"
+    >
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="17" cy="17" r="17" fill="#373535"></circle>
+            <path d="M14.759 9.8418L20.9409 16.9997L14.759 24.1576" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
+        </svg>
+    </button>
+);
+
+const BannerArrowRight = ({ currentSlide, slideCount, ...props }) => (
+    <button
+        {...props}
+        className={
+        "slick-next slick-arrow" +
+        (currentSlide === slideCount - 1 ? " slick-disabled" : "")
+        }
+        aria-hidden="true"
+        aria-disabled={currentSlide === slideCount - 1 ? true : false}
+        type="button"
+    >
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="17" cy="17" r="17" fill="#373535"></circle>
+            <path d="M14.759 9.8418L20.9409 16.9997L14.759 24.1576" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"></path>
+        </svg>
+    </button>
+);
 
 const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <button
@@ -61,6 +87,18 @@ const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
         </svg>
     </button>
 );
+
+const settings = {
+    dots: true,
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: 1,
+    speed: 500,
+    prevArrow: <BannerArrowLeft />,
+    nextArrow: <BannerArrowRight />,
+};
 
 const popular = {
     slidesToShow: 4,
@@ -110,7 +148,7 @@ function Home() {
             <section className="slider-pizza">
                 <Slider {...settings}>
                     {swiper.map((obj) => (
-                        <Sliders id={obj.id} key={obj.id} imageUrl={obj.imageUrl} />
+                        <Banner id={obj.id} key={obj.id} imageUrl={obj.imageUrl} />
                     ))}
                 </Slider>
             </section>
@@ -119,7 +157,7 @@ function Home() {
                 <h2 className="content__title">Новое и популярное</h2>
                 <Slider {...popular}>
                     {items.map((obj) => (
-                        <SliderSlick key={obj.id} onClickAddPizza={handleAddPizzaToCart} {...obj} />
+                        <Popular key={obj.id} onClickAddPizza={handleAddPizzaToCart} {...obj} />
                     ))}
                 </Slider>
             </section>

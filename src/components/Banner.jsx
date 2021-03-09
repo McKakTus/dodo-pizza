@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Sliders = ({ imageUrl }) => {
+const Banner = ({ imageUrl }) => {
 
     return (
         <img src={ imageUrl } alt=""/>
     )
 }
 
-export default Sliders;
+export default Banner;

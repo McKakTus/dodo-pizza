@@ -12,6 +12,6 @@ export { default as DessertsBlock } from './DessertsBlock';
 export { default as DrinksBlock } from './DrinksBlock';
 export { default as CartItem } from './CartItem';
 export { default as CartPopupList } from './CartPopupList';
-export { default as Sliders } from './Sliders';
-export { default as SliderSlick } from './SliderSlick';
+export { default as Banner } from './Banner';
+export { default as Popular } from './Popular';
 export { default as PizzaLoadingBlock } from './PizzaBlock/LoadingBlock';

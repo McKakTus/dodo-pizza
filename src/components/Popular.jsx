@@ -5,7 +5,7 @@ import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
 import Button from './Button';
 
-function SliderSlick({id, name, imageUrl, description, price, types, sizes, onClickAddPizza}) {
+function Popular({id, name, imageUrl, description, price, types, sizes, onClickAddPizza}) {
     const [open, setOpen] = useState(false);
     const onOpenModal = () => setOpen(true);
     const onCloseModal = () => setOpen(false);
@@ -96,7 +96,7 @@ function SliderSlick({id, name, imageUrl, description, price, types, sizes, onCl
     )
 }
 
-SliderSlick.propTypes = {
+Popular.propTypes = {
     name: PropTypes.string.isRequired,
     imageUrl: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
@@ -107,7 +107,7 @@ SliderSlick.propTypes = {
     addedCount: PropTypes.number,
 }
 
-SliderSlick.defaultProps = {
+Popular.defaultProps = {
   name: '---',
   description: '---',
   price: 0,
@@ -115,4 +115,4 @@ SliderSlick.defaultProps = {
   sizes: [],
 };
 
-export default SliderSlick;
+export default Popular;
