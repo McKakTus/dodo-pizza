@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Button } from '../components';
 import { Modal } from 'react-responsive-modal';
@@ -6,10 +6,13 @@ import { Modal } from 'react-responsive-modal';
 function Header() {
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
-    const [open, setOpen] = useState(false);
-    const onOpenModal = () => setOpen(true);
-    const onCloseModal = () => setOpen(false);
-
+    const [login, setLoginOpen] = useState(false);
+    const [register, setRegisterOpen] = useState(false);
+    const onOpenLoginModal = () => setLoginOpen(true);
+    const onCloseLoginModal = () => setLoginOpen(false);
+    const onOpenRegisterModal = () => setRegisterOpen(true);
+    const onCloseRegisterModal = () => setRegisterOpen(false);
+    
     return (
         <div className={click ? "header-section active" : "header-section"}>
             <div className="header">
@@ -43,7 +46,7 @@ function Header() {
                             </div>
                         </Link>
     
-                        <Button onClick={onOpenModal} className="button--auth">Войти</Button>
+                        <Button onClick={onOpenLoginModal} className="button--auth">Войти</Button>
     
                         <div className="mobile-menu" onClick={handleClick}>
                             <div className="stick"></div>
@@ -52,7 +55,7 @@ function Header() {
                 </div>
             </div>
 
-            <Modal open={open} onClose={onCloseModal} center>
+            <Modal open={login} onClose={onCloseLoginModal} center>
                 <div className="login-modal">
                     <div className="login-form">
                         <h2>Вход на сайт</h2>
@@ -71,7 +74,34 @@ function Header() {
                         <div className="login-form__separator">
                             <span>Создать аккаунт?</span>
                         </div>
-                        <Button className="button--password">Регистрация</Button>
+                        <Button onClick={onOpenRegisterModal} className="button--password">Регистрация</Button>
+                    </div>
+                    <div className="login-social">
+                        <Button className="button--facebook">Facebook</Button>
+                        <Button className="button--google">Google</Button>
+                    </div>
+                </div>
+            </Modal>
+
+            <Modal open={register} onClose={onCloseRegisterModal} center>
+                <div className="login-modal">
+                    <div className="login-form">
+                        <h2>Регистрация</h2>
+                        <form action="">
+                            <div className="login-form__login">
+                                <label className="login-form__login-label" htmlFor="">Email</label>
+                                <input className="login-form__login-input" type="text" name="" id=""/>
+                            </div>
+                            <div className="login-form__login">
+                                <label className="login-form__login-label" htmlFor="">Пароль</label>
+                                <input className="login-form__login-input" type="text" name="" id=""/>
+                            </div>
+                        </form>
+                        <Button className="button--login">Вход</Button>
+                        <div className="login-form__separator">
+                            <span>Уже есть аккаунт?</span>
+                        </div>
+                        <Button className="button--password">Авторизация</Button>
                     </div>
                     <div className="login-social">
                         <Button className="button--facebook">Facebook</Button>
@@ -81,6 +111,7 @@ function Header() {
             </Modal>
     
             <Menu />
+
         </div>
     )
 };

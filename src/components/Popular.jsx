@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
-import Button from './Button';
+import { Button } from '../components';
 
 function Popular({id, name, imageUrl, description, price, types, sizes, onClickAddPizza}) {
     const [open, setOpen] = useState(false);
